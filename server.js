@@ -43,7 +43,12 @@ app.use('/api/geocode', geocodingRoutes);
 app.use('/api/reports', reportsRoutes);
 app.use('/api', updatesRoutes);
 
-// Health check
+// ✅ Root route for basic check
+app.get('/', (req, res) => {
+  res.send('🌍 Disaster Response Backend is live!');
+});
+
+// Health check route
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
